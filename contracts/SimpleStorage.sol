@@ -2,8 +2,10 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 /// if state change cos gas
-/// 
 
+/// contract like a class
+/// each variable will like a index 
+/// vasiable without visibility will be in [internal], we can set our self with [public], [private]
 contract SimpleStorage {
     // this will get initialized to 0
     uint256 favoriteNumber = 5;
@@ -14,7 +16,7 @@ contract SimpleStorage {
         string name;
     }
 
-    // create empty with object People
+    // create empty array with object People
     People[] public people;
 
     // create new map
@@ -24,10 +26,13 @@ contract SimpleStorage {
         favoriteNumber = _favoriteNumber;
     }
 
+    /// use [view] for display and ruturn type with [returns(<type>)]
     function retrieve() public view returns(uint256){
         return favoriteNumber;
     }
 
+    /// memory: store on runtime, and clear after use
+    /// storage: store for long time 
     function addPerson(string memory _name, uint256 _favoriteNumber) public {
         // 2 way to assing arg (with index) or (with name)
         people.push(People(_favoriteNumber, _name));
